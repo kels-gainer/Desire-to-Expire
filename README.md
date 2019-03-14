@@ -35,11 +35,11 @@ The purpose of this mobile web app is to allow users to easily record and track 
   * [REACT](https://reactjs.org/) - for a user responsive front end Javascript framework
   * [node.js](https://nodejs.org/en/) - for Javascript based server code and logic
   * [express](https://expressjs.com/) - companion Web Framework for node.js
-  * [MySQL](https://www.npmjs.com/package/mysql) - for running our App database and storage.
-  * [Sequelize](http://docs.sequelizejs.com/) - for the ability for node to directly recieve and send data to our MySQL database via GET and POST requests.
+  * [MySQL](https://www.npmjs.com/package/mysql) - for the App storage and database
+  * [Sequelize](http://docs.sequelizejs.com/) - for node to directly recieve and send data to our MySQL database via GET and POST requests.
   * [Passport](http://www.passportjs.org/docs/downloads/html/) - for node based user authentication
   * [React Bootstrap](https://react-bootstrap.github.io/components/alerts/) - a UI framework that uses the power of Bootstrap with REACT applications
-  * [React Notifications](http://minhtranite.github.io/react-notifications/) - a REACT based notifications package that creates notification based alerts when the user opens the app.
+  * [React Notifications](http://minhtranite.github.io/react-notifications/) - a REACT based notifications package that creates notification based alerts
   * [Heroku](https://www.heroku.com/) - for app deployment and hosting
   * A folder struction that follows the MVC Pardigm
   * Custom Javascript, HTML, and CSS - for everything else!
