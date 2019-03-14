@@ -30,6 +30,12 @@ The purpose of this mobile web app is to allow users to easily record and track 
 
 - - -
 
+### Proposed UX/UI Layouts and Design:
+
+
+
+- - -
+
 ### Technology Used:
 
   * [REACT](https://reactjs.org/) - for a user responsive front end Javascript framework
