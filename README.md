@@ -14,11 +14,11 @@
  * Tim L. - [view on GitHub](https://github.com/?)
 
 ### Divisions of Labor
- * Ariana R. - 
- * Kelsey G. - 
- * Kennith S. - 
- * Jesse MH. - 
- * Tim L. - 
+ * Ariana R. - Front end
+ * Kelsey G. - Back end
+ * Kennith S. - Back end
+ * Jesse MH. - Front end
+ * Tim L. - Back end
 
  ## Who will be responsible for deliverables #1?
 
