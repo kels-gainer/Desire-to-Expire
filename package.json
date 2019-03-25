@@ -1,0 +1,32 @@
+{
+  "name": "desire-to-expire",
+  "version": "1.0.0",
+  "description": "![Desire-to-Expire](https://i.ytimg.com/vi/eHpGS9-8Rd0/hqdefault.jpg) ## A helpful app designed to keep your Refidgerator fresh, and remind you to use parishable items before they COME ALIVE!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kels-gainer/Desire-to-Expire.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kels-gainer/Desire-to-Expire/issues"
+  },
+  "homepage": "https://github.com/kels-gainer/Desire-to-Expire#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "sequelize": "^5.1.0"
+  }
+}

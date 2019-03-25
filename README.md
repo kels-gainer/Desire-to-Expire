@@ -29,6 +29,16 @@
 The purpose of this mobile web app is to allow users to easily record and track parishable items that they have in their fridge so they can be reminded to use them before they expire. If possible, we would also like to allow users to get suggested recipies for the ingredients that they have on hand, and even prioritize such recipie suggestions so as to use the soon to expire itmes first.
 
 - - -
+### Research:
+* Americans waste approximately 100 billion pounds of food each year.
+* This equates to roughly 14% of food purchased in an average household.
+* This breaks down to approximately $500 of wasted food on an annual basis per household.
+* 15% of this waste comes from food unopened and still within its expiration date.
+* We throw away about 1.5 pounds of food daily.
+* Additionally, this discarded food translates into increased pollution through increased methane production.
+
+- - -
+
 
 ### Proposed UX/UI Layouts and Design:
 
