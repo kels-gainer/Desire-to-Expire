@@ -24,7 +24,7 @@ CREATE TABLE user_items (
     date TIMESTAMP,
     FOREIGN KEY (id) REFERENCES dates(dates_id),
 	FOREIGN KEY (id) REFERENCES user_info(user_id),
-    edited_date INT (10),,
+    edited_date INT (100),
     PRIMARY KEY (id)
 );
   
