@@ -1,3 +1,0 @@
-DROP DATABASE IF EXISTS Fridge_db;
-
-CREATE DATABASE Fridge_db;
