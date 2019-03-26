@@ -1,5 +1,5 @@
-module.exports = function(sequlize, DataTypes) {
-    let UserItem = sequlize.define("UserItem", {
+module.exports = function(sequelize, DataTypes) {
+    let UserItem = sequelize.define("UserItem", {
         item_date: {
             type: DataType.INTEGER,
         },
@@ -14,7 +14,7 @@ module.exports = function(sequlize, DataTypes) {
 UserItem.associate = function(models) {
     models.UserItem.belongsTo(models.Food, {
         foreignKey: {
-            type: Sequlize.INTEGER,
+            type: sequelize.INTEGER,
             references: {
                 model: Food,
                 key: "id"
@@ -24,7 +24,7 @@ UserItem.associate = function(models) {
 
     models.UserItem.belongsTo(models.UserInfo, {
         foreignKey: {
-            type: Sequlize.INTEGER,
+            type: sequelize.INTEGER,
             references: {
                 model: UserInfo,
                 key: "id"

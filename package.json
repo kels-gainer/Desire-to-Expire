@@ -1,0 +1,21 @@
+{
+  "name": "desire-to-expire",
+  "version": "1.0.0",
+  "description": "![Desire-to-Expire](https://i.ytimg.com/vi/eHpGS9-8Rd0/hqdefault.jpg) ## A helpful app designed to keep your Refidgerator fresh, and remind you to use parishable items before they COME ALIVE!",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kels-gainer/Desire-to-Expire.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kels-gainer/Desire-to-Expire/issues"
+  },
+  "homepage": "https://github.com/kels-gainer/Desire-to-Expire#readme"
+}
