@@ -22,6 +22,7 @@ function NavBar(props) {
         <div>
           <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
           <button className="btn btn-dark" onClick={() => {signOut()}}>Sign Out</button>
+          {console.log(auth0Client.getProfile().name)}
         </div>
       }
     </nav>

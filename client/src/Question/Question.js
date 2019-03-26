@@ -19,14 +19,14 @@ class Question extends Component {
 
   async refreshQuestion() {
     const { match: { params } } = this.props;
-    const question = (await axios.get(`http://localhost:8081/${params.questionId}`)).data;
+    const question = (await axios.get(`http://localhost:3001/${params.questionId}`)).data;
     this.setState({
       question,
     });
   }
 
   async submitAnswer(answer) {
-    await axios.post(`http://localhost:8081/answer/${this.state.question.id}`, {
+    await axios.post(`http://localhost:3001/answer/${this.state.question.id}`, {
       answer,
     }, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }

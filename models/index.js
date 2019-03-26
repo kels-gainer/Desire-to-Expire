@@ -39,14 +39,14 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 //Models/ tables
-db.users = require('./userInfo.js')(sequelize, Sequelize);
+//db.users = require('./userInfo.js')(sequelize, Sequelize);
 db.food = require('./dates.js')(sequelize, Sequelize);
 db.items = require('./userItems.js')(sequelize, Sequelize);
 
 //Relations
 db.items.belongsTo(db.food);
 db.food.hasMany(db.items);
-db.items.belongsTo(db.users);
-db.users.hasMany(db.items);
+//db.items.belongsTo(db.users);
+//db.users.hasMany(db.items);
 
 module.exports = db;

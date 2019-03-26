@@ -12,7 +12,7 @@ const app = express();
 
 // *****************
 // the database
-const questions = [];
+//const db = [];
 
 // enhance your app security with Helmet
 app.use(helmet());
@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 
 // enable all CORS requests
 app.use(cors());
+
 
 // log HTTP requests
 app.use(morgan('combined'));
@@ -39,12 +40,12 @@ let db = require("./models");
 // Define API routes here
 
 //  ************
-// get a specific question
+// get a specific FItem
 app.get('/:id', (req, res) => {
-  const question = questions.filter(q => (q.id === parseInt(req.params.id)));
-  if (question.length > 1) return res.status(500).send();
-  if (question.length === 0) return res.status(404).send();
-  res.send(question[0]);
+  const FItem = db.filter(q => (q.id === parseInt(req.params.id)));
+  if (FItem.length > 1) return res.status(500).send();
+  if (FItem.length === 0) return res.status(404).send();
+  res.send(FItem[0]);
 });
 
 const checkJwt = jwt({
@@ -61,29 +62,29 @@ const checkJwt = jwt({
   algorithms: ['RS256']
 });
 
-// insert a new question
+// insert a new FItem
 app.post('/', checkJwt, (req, res) => {
   const {title, description} = req.body;
-  const newQuestion = {
-    id: questions.length + 1,
+  const newFItem = {
+    id: db.length + 1,
     title,
     description,
     answers: [],
     author: req.user.name,
   };
-  questions.push(newQuestion);
+  db.push(newFItem);
   res.status(200).send();
 });
 
-// insert a new answer to a question
+// insert a new answer to a FItem
 app.post('/answer/:id', checkJwt, (req, res) => {
   const {answer} = req.body;
 
-  const question = questions.filter(q => (q.id === parseInt(req.params.id)));
-  if (question.length > 1) return res.status(500).send();
-  if (question.length === 0) return res.status(404).send();
+  const FItem = db.filter(q => (q.id === parseInt(req.params.id)));
+  if (FItem.length > 1) return res.status(500).send();
+  if (FItem.length === 0) return res.status(404).send();
 
-  question[0].answers.push({
+  FItem[0].answers.push({
     answer,
     author: req.user.name,
   });
