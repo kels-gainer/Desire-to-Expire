@@ -1,0 +1,42 @@
+do research/power point
+
+making a mysql database with seeds of all expired items
+heroku push
+using days not weeks or hours for the items in database
+get icons for col (trash can or x and edit icon)
+
+validation on delete option (on click)
+
+authentication
+
+save/update/delete entries
+
+list of entries under categories: produce, meats, dairy
+	subcategories-deli meat, raw meat, sea food
+		      milk, eggs, soft & hard cheese, yogurt, sour cream, cream cheese
+		      potatos, greens (seperate into hardy greens and none such as cabbage vs spinach), tomatos, herbs (avacado is separate from the main selection)
+		      fruits (all the same minus bananas)
+tables: for users, user data (all their items), suggested expirations
+
+col are card class with the item name, expiration date, delete, edit
+edit = opens a modal and allows to edit date and then save 
+
+
+Front end will be Jesse & Ariana / Back end Kennith, Kelsey & Tim
+yet we will do what is needed regardless of the designated group
+
+Our designated work so far:
+
+Jesse-authentication, UI design
+Ariana- reasearch/powerpoint, UI design
+Kennith- saving, updating, & deleting entries for our api calls
+Kelsey- Hardcoding expiration dates into mysql (adding the tables for user data)
+Tim - UI design
+
+BelowOCFBudget.findAll({
+    raw: true,
+    include:[{
+        model: models.belowOcf,
+        where: {belowOcf.timeperiod: timeperiod}
+    }],
+}) 

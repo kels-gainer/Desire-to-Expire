@@ -2,13 +2,6 @@
   "name": "desire-to-expire",
   "version": "1.0.0",
   "description": "![Desire-to-Expire](https://i.ytimg.com/vi/eHpGS9-8Rd0/hqdefault.jpg) ## A helpful app designed to keep your Refidgerator fresh, and remind you to use parishable items before they COME ALIVE!",
-<<<<<<< HEAD
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,7 +13,6 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
->>>>>>> 782ed8b7aa92d81d8b52f03f66b0be515d065240
   },
   "repository": {
     "type": "git",
@@ -31,14 +23,17 @@
   "bugs": {
     "url": "https://github.com/kels-gainer/Desire-to-Expire/issues"
   },
-<<<<<<< HEAD
-  "homepage": "https://github.com/kels-gainer/Desire-to-Expire#readme"
-=======
   "homepage": "https://github.com/kels-gainer/Desire-to-Expire#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mysql": "^2.16.0",
+    "express-jwt": "^5.3.1",
+    "helmet": "^3.16.0",
+    "jwks-rsa": "^1.4.0",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.5",
+    "npm": "^6.9.0",
     "sequelize": "^5.1.0"
   }
->>>>>>> 782ed8b7aa92d81d8b52f03f66b0be515d065240
 }

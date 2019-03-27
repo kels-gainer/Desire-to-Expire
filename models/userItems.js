@@ -1,37 +1,48 @@
-module.exports = function(sequelize, DataTypes) {
-    let UserItem = sequelize.define("UserItem", {
-        item_date: {
-            type: DataType.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+    const UserItem = sequelize.define(
+      "UserInfo",
+      {
+        id: {
+          type: DataTypes.UUID,
+          primaryKey: true,
+          defaultValue: DataTypes.UUIDV4,
+          allowNull: false
         },
-        edited_date: {
-            type: DataType.INTEGER,
+        user_email: {
+          type: DataTypes.STRING,
+          allowNull: false
         },
-
-        primaryKey: true
-    });
-
-
-UserItem.associate = function(models) {
-    models.UserItem.belongsTo(models.Food, {
-        foreignKey: {
-            type: sequelize.INTEGER,
-            references: {
-                model: Food,
-                key: "id"
-            }
-        }
-    });
-
-    models.UserItem.belongsTo(models.UserInfo, {
-        foreignKey: {
-            type: sequelize.INTEGER,
-            references: {
-                model: UserInfo,
-                key: "id"
-            }
-        }
-    })
-};
-
-return UserItem;
-};
+        name: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        category: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        ex_date: {
+          type: DataTypes.INTEGER,
+          allowNull: true
+        },
+        created_at: {
+          type: DataTypes.DATE,
+          allowNull: false
+        },
+        updated_at: DataTypes.DATE,
+        deleted_at: DataTypes.DATE
+      },
+      {
+        freezeTableName: true,
+        timestamps: false
+      }
+    );
+  
+    UserItem.associate = function(models) {
+      // Associating UserItem with Food
+      UserItem.hasMany(models.Food, {
+        // Do something here??
+      });
+    };
+  
+    return UserItem;
+  };
