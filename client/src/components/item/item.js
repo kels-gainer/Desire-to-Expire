@@ -124,3 +124,5 @@ class fridgeItem extends React.Component {
   }
   
   render(<fridgeItem />);
+
+  export default fridgeItem;
