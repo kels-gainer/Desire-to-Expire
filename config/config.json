@@ -2,12 +2,11 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "mysql4boba1",
     "database": "Fridge_db",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": 3307
-  },
+    "dialect": "mysql"
+    },
   "test": {
     "username": "root",
     "password": "root",

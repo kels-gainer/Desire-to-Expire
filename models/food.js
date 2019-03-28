@@ -3,14 +3,14 @@ module.exports = (sequelize, DataTypes) => {
     "Food",
     {
       id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
-        allowNull: false
+        autoIncrement: true
+        //allowNull: false
       },
       userItem_id: {
         type: DataTypes.UUID,
-        allowNull: false
+        //allowNull: false
       },
       food_name: {
         type: DataTypes.STRING,
