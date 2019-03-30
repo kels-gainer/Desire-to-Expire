@@ -11,6 +11,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Requiring our models for syncing
+let db = require("./models");
+
 // Define API routes here
 
 // Send every other request to the React app
@@ -19,6 +22,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+
+db.sequelize.sync({ force: true }).then(function() {
+	app.listen(PORT, () => {
+  		console.log(`🌎 ==> API server now on port ${PORT}!`);
+	});
 });
