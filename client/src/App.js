@@ -23,8 +23,8 @@ class App extends Component {
         <NavBar></NavBar>
         <Route exact path='/callback' component={Callback}/>
         
-        <BodyContainer myText="hello">
-          <h1>Hello?</h1>
+        <BodyContainer myText="test">
+          <h1>This doesn't load...</h1>
         </BodyContainer>
 
         <SecuredRoute path='/new-question'>
