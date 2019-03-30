@@ -5,7 +5,8 @@
     "password": "mysql4boba1",
     "database": "Fridge_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": ""
     },
   "test": {
     "username": "root",
