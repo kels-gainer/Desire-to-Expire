@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import {Route, withRouter} from 'react-router-dom';
 import auth0Client from './Auth';
-import NavBar from './NavBar/NavBar';
-import Question from './Question/Question';
-import Questions from './Questions/Questions';
+import NavBar from './components/NavBar';
+import BodyContainer from './components/BodyContainer';
 import Callback from './Callback';
-import NewFItem from './NewFItem/NewFItem';
-import SecuredRoute from './SecuredRoute/SecuredRoute';
+import SecuredRoute from './components/SecuredRoute';
 
 class App extends Component {
   async componentDidMount() {
@@ -23,10 +21,15 @@ class App extends Component {
     return (
       <div>
         <NavBar></NavBar>
-        <Route exact path='/' component={Questions}/>
-        <Route exact path='/question/:questionId' component={Question}/>
         <Route exact path='/callback' component={Callback}/>
-        <SecuredRoute path='/new-question' component={NewFItem} />
+        
+        <BodyContainer myText="hello">
+          <h1>Hello?</h1>
+        </BodyContainer>
+
+        <SecuredRoute path='/new-question'>
+          <h1>You are now logged in</h1>
+        </SecuredRoute>
       </div>
     );
   }
