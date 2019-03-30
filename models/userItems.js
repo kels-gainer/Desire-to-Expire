@@ -1,12 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
-    const UserItem = sequelize.define(
-      "UserInfo",
+    const UserItems = sequelize.define(
+      "UserItems",
       {
         id: {
-          type: DataTypes.UUID,
+          type: DataTypes.INTEGER,
           primaryKey: true,
-          defaultValue: DataTypes.UUIDV4,
-          allowNull: false
+          autoIncrement: true
+          // defaultValue: DataTypes.UUIDV4,
+          // allowNull: false
         },
         user_email: {
           type: DataTypes.STRING,
@@ -37,12 +38,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
   
-    UserItem.associate = function(models) {
+    UserItems.associate = function(models) {
       // Associating UserItem with Food
-      UserItem.hasMany(models.Food, {
+      UserItems.hasMany(models.Food, {
         // Do something here??
       });
     };
   
-    return UserItem;
+    return UserItems;
   };
