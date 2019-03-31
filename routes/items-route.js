@@ -4,13 +4,13 @@ module.exports = function(app) {
     // get all date ids 
     app.get("/api/userItems", function(req, res) {
         var query = {};
-        if (req.query.db.dates_id) {
-            query.DatesId = req.query.dates_id;
+        if (req.query.db) {
+            query.id = req.query.id;
         }
 
-        db.Items.findAll({
+        db.UserItems.findAll({
             where:query,
-            include: [db.dates]
+            include: [db.Food]
         }).then(function(dbItems) {
             res.json(dbItems)
             });
@@ -18,11 +18,11 @@ module.exports = function(app) {
 
         // get one date id
     app.get("/api/userItems/:id", function(req, res) {
-        db.Items.findOne({
+        db.UserItems.findOne({
             where: {
-                id: req.parms.id
+                id: req.params.id
             },
-            include: [db.Dates]
+                include: [db.Food]
         }).then(function(dbItems) {
             res.json(dbItems);
         });
@@ -30,14 +30,14 @@ module.exports = function(app) {
 
     // Post new items
     app.post("/api/userItems", function(req, res) {
-        db.Items.create(req.body).then(function(dbItems) {
+        db.UserItems.create(req.body).then(function(dbItems) {
             res.json(dbItems);
         });
     });
 
     // delete items
     app.delete("/api/userItems/:id", function(req, res) {
-        db.Items.destroy({
+        db.UserItems.destroy({
             where: {
                 id: req.params.id
             }
