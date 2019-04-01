@@ -1,3 +1,5 @@
+import Form from 'react-bootstrap/Form'
+import Modal from 'react-bootstrap/Modal'
 
 class fridgeItem extends React.Component {
     constructor(props, context) {
@@ -8,13 +10,15 @@ class fridgeItem extends React.Component {
   
       this.state = {
         show: false,
+        // user items const 
       };
     }
   
     handleClose() {
       this.setState({ show: false });
     }
-  
+   // create method select all 
+   // select * all from user items table where user email equals
     handleShow() {
       this.setState({ show: true });
     }
@@ -33,8 +37,8 @@ class fridgeItem extends React.Component {
 
             <Modal.Body>
 
-                <Form>
-                <Form.Group controlId="exampleForm.ControlSelect1">
+                <Form action="item.php" method="post" name="itemForm" id="itForm_id" class="itForm_class">
+                <Form.Group controlId="food_name">
                     <Form.Label>Food Name</Form.Label>
                     <Form.Control as="select">
                     <option>Milk</option>
@@ -79,7 +83,7 @@ class fridgeItem extends React.Component {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId="exampleForm.ControlSelect2">
+                <Form.Group controlId="category">
                     <Form.Label>Food Category</Form.Label>
                     <Form.Control as="select" multiple>
                     <option>Dairy</option>
@@ -92,7 +96,7 @@ class fridgeItem extends React.Component {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId="exampleForm.ControlSelect2">
+                <Form.Group controlId="ex_date">
                     <Form.Label>Expiration</Form.Label>
                     <Form.Control as="select" multiple>
                     <option>2</option>
@@ -112,8 +116,8 @@ class fridgeItem extends React.Component {
             </Modal.Body>
 
             <Modal.Footer>
-              <Button variant="secondary" onClick={this.handleClose}>
-                Close
+              <Button input type="submit" variant="secondary" onClick={this.handleClose}>
+                Create Item
               </Button>
               
             </Modal.Footer>
@@ -122,7 +126,10 @@ class fridgeItem extends React.Component {
       );
     }
   }
-  
+
   render(<fridgeItem />);
 
   export default fridgeItem;
+// post to db 
+// send back data
+// 

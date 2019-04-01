@@ -1,5 +1,11 @@
 import React from "react"
 import './listView.css';
+import fridgeItem from "item.js"
+
+//connect the routes 
+//axios to connect 
+// display on the server terminal
+
 
 React.createElement("div",
 
@@ -13,6 +19,7 @@ React.createElement("li", null, " Information:", category, " ")),
 React.createElement("button", null, "Edit"), 
 React.createElement("button", null, "Delete"));
 
+ReactDOM.render(<item.js />, document.getElementById("root"));
 ReactDOM.render(element, document.getElementById('root'));
 
 

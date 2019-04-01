@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  margin-top: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("rebel.png");
+  background-repeat: repeat-y repeat-x;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.bodyContainer {
+  background-color: white;
+  border-radius: 25px;
+  height: 600px;
+}
+
+div.bodyContent {
+  text-align: center;
+}

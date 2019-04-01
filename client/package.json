@@ -4,6 +4,8 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "auth0": "^2.16.0",
+    "auth0-js": "^9.10.1",
     "mdbreact": "^4.11.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
