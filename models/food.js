@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Food.associate = function(models) {
     // We're saying that a Food should belong to an UserInfo
-    Food.belongsTo(models.UserInfo, {
+    Food.belongsTo(models.UserItems, {
       foreignKey: {
         // Do something here??
       }

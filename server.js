@@ -15,6 +15,9 @@ if (process.env.NODE_ENV === "production") {
 let db = require("./models");
 
 // Define API routes here
+require("./routes/dates-route.js")(app);
+require("./routes/items-route.js")(app);
+// require("./routes/info-route.js")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
