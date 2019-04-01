@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-    // get all date ids 
+    // GET ALL USER ITEMS
     app.get("/api/userItems", function(req, res) {
         var query = {};
         if (req.query.db) {
@@ -13,10 +13,10 @@ module.exports = function(app) {
             include: [db.Food]
         }).then(function(dbItems) {
             res.json(dbItems)
-            });
         });
+    });
 
-        // get one date id
+    // GET ONE USER ITEM BY ID
     app.get("/api/userItems/:id", function(req, res) {
         db.UserItems.findOne({
             where: {
@@ -28,7 +28,26 @@ module.exports = function(app) {
         });
     });
 
-    // Post new items
+    // GET ALL ITEMS BY USER (ie EMAIL)
+    app.get("/api/byemail/:email", function(req, res) {
+        db.UserItems.findAll({
+            where: {
+                email: req.params.email
+            },
+                include: [db.Food]
+        }).then(function(dbItems) {
+            res.json(dbItems);
+        });
+    });
+
+    // POST NEW USER ITEMS
+    //Sample POST BODY JSON object example
+    // {
+    //     "user_email": "smith@blah.com",
+    //     "name": "Chicken",
+    //     "category": "Meat",
+    //     "ex_date": 5
+    // }
     app.post("/api/userItems", function(req, res) {
         db.UserItems.create(req.body).then(function(dbItems) {
             res.json(dbItems);
@@ -48,7 +67,7 @@ module.exports = function(app) {
 
     // Update items
     app.put("/api/userItems", function(req, res) {
-        db.Items.update(req.body, {
+        db.UserItems.update(req.body, {
             where: {
                 id: req.body.id
             }
