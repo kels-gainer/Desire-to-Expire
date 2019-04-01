@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import BodyContainer from './components/BodyContainer';
 import Callback from './Callback';
 import SecuredRoute from './components/SecuredRoute';
+import FridgeItem from './components/item';
 
 class App extends Component {
   async componentDidMount() {
@@ -26,6 +27,7 @@ class App extends Component {
         <BodyContainer myText="test">
           <h1>This doesn't load...</h1>
         </BodyContainer>
+        <FridgeItem />
 
         <SecuredRoute path='/new-question'>
           <h1>You are now logged in</h1>

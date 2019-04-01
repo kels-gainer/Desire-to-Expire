@@ -29,10 +29,10 @@ module.exports = function(app) {
     });
 
     // GET ALL ITEMS BY USER (ie EMAIL)
-    app.get("/api/byemail/:email", function(req, res) {
+    app.get("/api/:email", function(req, res) {
         db.UserItems.findAll({
             where: {
-                email: req.params.email
+                user_email: req.params.email
             },
                 include: [db.Food]
         }).then(function(dbItems) {
