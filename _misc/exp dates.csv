@@ -1,0 +1,40 @@
+food_name,category,ex_date
+Milk,Dairy,14
+Butter,Dairy,60
+Cream,Dairy,14
+Cheese,Dairy,30
+Sour cream,Dairy,14
+Yogurt,Dairy,30
+Apple,Fruit,21
+Orange,Fruit,21
+Grapes,Fruit,7
+Banana,Fruit,3
+Melons,Fruit,7
+Bread,Grains,14
+Ground meat,Meat,3
+Lunch meat,Meat,14
+Steaks,Meat,3
+Roasts,Meat,3
+Hot Dogs,Meat,14
+Bacon,Meat,7
+Sausage,Meat,7
+Eggs,Meat,35
+Poltry,Meat,3
+Potatos ,Root Veggies,14
+Carrots,Root Veggies,14
+Radish,Root Veggies,14
+Fish,Seafood,2
+Smoked fish,Seafood,10
+Shellfish,Seafood,7
+Herbs (fresh),Veggies,14
+Asparagus,Veggies,3
+Corn,Veggies,3
+Cabbage,Veggies,7
+Celery ,Veggies,7
+Lettuce,Veggies,7
+Peppers,Veggies,7
+Squash,Veggies,7
+Mushrooms,Veggies,7
+Tomatoes,Veggies,7
+Broccoli,Veggies,7
+Spinach,Veggies,7

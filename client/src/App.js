@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 import Modal from './components/Signup'
 
-import logo from './logo.svg';
 import './App.css';
 import FormContainer from './components/Container';
 
-class App extends Component {
+import {Route, withRouter} from 'react-router-dom';
+import auth0Client from './Auth';
+import NavBar from './components/NavBar';
+import BodyContainer from './components/BodyContainer';
+import Callback from './Callback';
+import SecuredRoute from './components/SecuredRoute';
+import './css/listView.css';
 
-      constructor() {
+class App extends Component {
+  async componentDidMount() {
+  if (this.props.location.pathname === '/callback') return;
+  try {
+    await auth0Client.silentAuth();
+    this.forceUpdate();
+  } catch (err) {
+    if (err.error !== 'login_required') console.log(err.error);
+  }
+}
+  
+     constructor() {
         super();
 
         this.state = {
@@ -26,15 +42,16 @@ class App extends Component {
             isShowing: false
         });
     }
-
-
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <div className="callout-basics-example">
-          <div className="row">
-            <div className="column">
+        <NavBar></NavBar>
+        <Route exact path='/callback' component={Callback}/>
+        
+        <BodyContainer myText="test" />
+      
+        <div className="column">
                 { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
                 <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>Add Food</button>
                 </div>
@@ -46,13 +63,19 @@ class App extends Component {
                     {/* <FormContainer/> */}
                 </Modal>
               </div>
-            </div>
-          </div>
-        </header>
+         </div>
+
+        <SecuredRoute path='/new-question'>
+          <h1>You are now logged in</h1>
+        </SecuredRoute>
+      
+      
+
+
       </div>
     );
   }
 } 
 
 
-export default App;
+export default withRouter(App);

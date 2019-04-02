@@ -1,11 +1,17 @@
 {
-  "name": "desire-to-expire",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "auth0-js": "^9.10.1",
+    "axios": "^0.18.0",
+    "mdbreact": "^4.11.1",
+    "moment": "^2.24.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
   },
   "scripts": {
