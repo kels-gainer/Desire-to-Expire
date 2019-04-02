@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Modal from './components/Signup'
+
+import './App.css';
+import FormContainer from './components/Container';
+
 import {Route, withRouter} from 'react-router-dom';
 import auth0Client from './Auth';
 import NavBar from './components/NavBar';
@@ -17,21 +22,60 @@ class App extends Component {
     if (err.error !== 'login_required') console.log(err.error);
   }
 }
+  
+     constructor() {
+        super();
 
+        this.state = {
+            isShowing: false
+        }
+    }
+
+    openModalHandler = () => {
+        this.setState({
+            isShowing: true
+        });
+    }
+
+    closeModalHandler = () => {
+        this.setState({
+            isShowing: false
+        });
+    }
+  
   render() {
     return (
-      <div>
+      <div className="App">
         <NavBar></NavBar>
         <Route exact path='/callback' component={Callback}/>
         
         <BodyContainer myText="test" />
+      
+        <div className="column">
+                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
+                <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>Add Food</button>
+                </div>
+            <div className="column">
+                <Modal
+                    className="modal"
+                    show={this.state.isShowing}
+                    close={this.closeModalHandler}>
+                    {/* <FormContainer/> */}
+                </Modal>
+              </div>
+         </div>
 
         <SecuredRoute path='/new-question'>
           <h1>You are now logged in</h1>
         </SecuredRoute>
+      
+      
+
+
       </div>
     );
   }
-}
+} 
+
 
 export default withRouter(App);
