@@ -66,13 +66,15 @@ module.exports = function(app) {
     });
 
     // Update items
-    app.put("/api/userItems", function(req, res) {
+    app.put("/api/userItems/:id", function(req, res) {
         db.UserItems.update(req.body, {
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         }).then(function(dbItems) {
             res.json(dbItems);
+        }).catch(err => {
+            res.send(err)
         });
     });
 };
