@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from './components/Signup'
 
-import './App.css';
+import './css/App.css';
 import FormContainer from './components/Container';
 
 import {Route, withRouter} from 'react-router-dom';
@@ -51,27 +51,27 @@ class App extends Component {
         
         <BodyContainer myText="test" />
       
+        <div className="row">
         <div className="column">
-                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
-                <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>Add Food</button>
+                { this.state.isShowing ?
+                <div onClick={this.closeModalHandler} className="back-drop">
+                </div> : null }
+                  <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>
+                    Add Food
+                  </button>
                 </div>
             <div className="column">
-                <Modal
-                    className="modal"
+                <Modal className="modal"
                     show={this.state.isShowing}
                     close={this.closeModalHandler}>
                     {/* <FormContainer/> */}
                 </Modal>
-              </div>
+            </div>
          </div>
 
-        <SecuredRoute path='/new-question'>
-          <h1>You are now logged in</h1>
-        </SecuredRoute>
+        <SecuredRoute path='/new-question' />
       
       
-
-
       </div>
     );
   }
