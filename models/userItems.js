@@ -24,13 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         ex_date: {
           type: DataTypes.INTEGER,
           allowNull: true
-        },
-        created_at: {
-          type: DataTypes.DATE,
-          allowNull: false
-        },
-        updated_at: DataTypes.DATE,
-        deleted_at: DataTypes.DATE
+        }
       },
       {
         freezeTableName: true,

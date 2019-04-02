@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("rebel.png");
+  background-image: url("./images/rebel.png");
   background-repeat: repeat-y repeat-x;
 }
 
@@ -18,10 +18,15 @@ code {
 
 .bodyContainer {
   background-color: white;
-  border-radius: 25px;
-  height: 600px;
+  border-radius: 12px;
+  background-image: url('./images/fridge_all.jpg');
+  background-repeat: no-repeat;
+  background-size: 500px 891px;
+  height: 891px;
+  width: 500px;
 }
 
 div.bodyContent {
   text-align: center;
+  
 }
