@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 /* Import Components */
-import Input from "../Input";
+//import Input from "../Input";
 // import TextArea from "../components/TextArea";
 import Button from "../Buttons";
-import Dropdown from "../Dropdown"
+//import Form from "../Form";
+//import Dropdown from "../Dropdown"
 
 class FormContainer extends Component {
   constructor(props) {
@@ -119,11 +120,11 @@ class FormContainer extends Component {
 
   render() {
     return (
-      <form className="container-fluid" onSubmit={this.handleFormSubmit}>
+      <div className="container-fluid" onSubmit={this.handleFormSubmit}>
         <form>
-  <div class="form-group">
-    <label for="food_name">Food Name</label>
-    <select class="food_name" id="food_name">
+  <div className="form-group">
+    <label htmlFor="food_name">Food Name</label>
+    <select className="food_name" id="food_name">
                     <option>Milk</option>
                     <option>Butter</option>
                     <option>Cream</option>
@@ -165,9 +166,9 @@ class FormContainer extends Component {
                     <option>Spinach</option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="category">Category</label>
-    <select class="category" id="category">
+  <div className="form-group">
+    <label htmlFor="category">Category</label>
+    <select className="category" id="category">
             <option>Dairy</option>
             <option>Fruit</option>
             <option>Grains</option>
@@ -177,9 +178,9 @@ class FormContainer extends Component {
             <option>Veggies</option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="ex_date">Expiration</label>
-    <select class="ex_date" id="ex_date">
+  <div className="form-group">
+    <label htmlFor="ex_date">Expiration</label>
+    <select className="ex_date" id="ex_date">
                     <option>2</option>
                     <option>3</option>
                     <option>7</option>
@@ -206,7 +207,7 @@ class FormContainer extends Component {
           style={buttonStyle}
         />{" "}
         {/* Clear the form */}
-      </form>
+      </div>
     );
   }
 }

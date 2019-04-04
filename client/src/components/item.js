@@ -1,21 +1,86 @@
-import React from 'react';
+import React, { Component } from 'react';
+import API from '../utils/API';
+//import auth0Client from '../Auth';
+//import axios from 'axios';
 // import Form from 'react-bootstrap/Form'
 // import Modal from 'react-bootstrap/Modal'
 
-const FridgeItem = (props) => {
+//auth0Client.isAuthenticated() && auth0Client.getProfile().name
+//const email = "joe@blah.com"
+
+class FridgeItem extends Component {
+  
+  constructor(props){
+    super(props)
+    this.state = {
+      email: "joe@blah.com",
+      auth: false,
+      userItems: [],
+      food_name: "",
+      ex_date: ""
+    }
+  }
+    
+      componentDidMount() {
+        console.log(this.props)
+        this.setState({
+          auth: this.props.auth,
+          email: this.props.email
+        })
+        //this.setState({email: this.props.email})
+        this.loadItems(this.state.email);
+       
+
+      }
+
+      loadItems = (email) => {
+        API.getUserItems(email)
+          .then(res => {
+            this.setState({ userItems: res.data})
+            console.log(res.data)
+          })
+          .catch(err => console.log(err));
+      };
+    
+      deleteBook = id => {
+        API.deleteBook(id)
+          .then(res => this.loadBooks())
+          .catch(err => console.log(err));
+      };
+    
+      handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+      };
+    
+      handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.title && this.state.author) {
+          API.saveBook({
+            title: this.state.title,
+            author: this.state.author,
+            synopsis: this.state.synopsis
+          })
+            .then(res => this.loadBooks())
+            .catch(err => console.log(err));
+        }
+      };
+    
+    render() {
     return (
         <div className="list-view">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+            <ul className="list-group list-group-flush">
+                {
+                  this.state.userItems.map((item, i) =>
+                    <li className="list-group-item" key={i}><button className="icon-left"><i className="fas fa-edit"></i></button><span className="li-text">{item.name}</span><button className="icon-right"><i className="fas fa-trash-alt"></i></button></li>
+                  )
+                }
+                {/* <li className="list-group-item">Cras justo odio</li> */}
             </ul>
         </div>
-    )
+    )}
 }
-
-
 
 export default FridgeItem;

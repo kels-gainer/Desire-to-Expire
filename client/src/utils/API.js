@@ -2,9 +2,13 @@ import axios from "axios";
 
 export default {
   // GET ALL ITEMS BY USER (ie EMAIL)
-  getUserItems: email => { axios.get(`/api/${email}`); },
+  getUserItems: function (email) {
+    return axios.get("/api/" + email);
+  },
   // GET ONE USER ITEM BY ID
-  getUserItem: id => { axios.get(`/api/userItems/${id}`); },
+  getUserItem: function (id) {
+    return axios.get(`/api/userItems/${id}`);
+  },
   // DELETE USER ITEM WITH THE GIVEN ID
   deleteUserItem: id => { axios.delete(`/api/userItems/${id}`); },
   // UPDATE USER ITEM

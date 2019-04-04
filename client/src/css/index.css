@@ -19,11 +19,17 @@ code {
 .bodyContainer {
   background-color: white;
   border-radius: 12px;
-  background-image: url('./images/fridge_all.jpg');
-  background-repeat: no-repeat;
-  background-size: 500px 891px;
+  
   height: 891px;
   width: 500px;
+}
+
+.row-header {
+  background-image: url('./images/fridge_header.png');
+  background-repeat: no-repeat;
+  background-size: 502px 120px;
+  height: 117px;
+  width: 480px;
 }
 
 div.bodyContent {

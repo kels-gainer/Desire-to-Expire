@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from './components/Signup'
 
 import './css/App.css';
-import FormContainer from './components/Container';
+//import FormContainer from './components/Container';
 
 import {Route, withRouter} from 'react-router-dom';
 import auth0Client from './Auth';
@@ -14,20 +14,37 @@ import './css/listView.css';
 
 class App extends Component {
   async componentDidMount() {
-  if (this.props.location.pathname === '/callback') return;
-  try {
-    await auth0Client.silentAuth();
-    this.forceUpdate();
-  } catch (err) {
-    if (err.error !== 'login_required') console.log(err.error);
+    if (this.props.location.pathname === '/callback') return;
+    try {
+      await auth0Client.silentAuth();
+      this.forceUpdate();
+      this.setState({
+        auth: auth0Client.isAuthenticated(),
+        email: auth0Client.getProfile().name
+      });
+      
+    } catch (err) {
+      if (err.error !== 'login_required') console.log(err.error);
+    }
   }
-}
+
+  componentDidUpdate(prev) {
+    if (this.state.auth !== auth0Client.isAuthenticated()) {
+      this.setState({
+        auth: auth0Client.isAuthenticated(),
+        email: auth0Client.getProfile().name
+      });
+    }
+  }
   
      constructor() {
         super();
 
         this.state = {
-            isShowing: false
+            isShowing: false,
+            auth: false,
+            email: ""
+            
         }
     }
 
@@ -46,13 +63,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar></NavBar>
+        <NavBar 
+          auth={this.state.auth}
+        >
+        </NavBar>
         <Route exact path='/callback' component={Callback}/>
-        
-        <BodyContainer myText="test" />
-      
+        <br></br>
         <div className="row">
-        <div className="column">
+          <div className="sm-col-5">
                 { this.state.isShowing ?
                 <div onClick={this.closeModalHandler} className="back-drop">
                 </div> : null }
@@ -60,14 +78,15 @@ class App extends Component {
                     Add Food
                   </button>
                 </div>
-            <div className="column">
+  
                 <Modal className="modal"
                     show={this.state.isShowing}
                     close={this.closeModalHandler}>
                     {/* <FormContainer/> */}
                 </Modal>
-            </div>
+                <BodyContainer email={this.state.email} auth={this.state.auth}/>
          </div>
+        
 
         <SecuredRoute path='/new-question' />
       

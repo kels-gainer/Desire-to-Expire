@@ -1,6 +1,29 @@
 .list-view {
     display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100%;
+    position: relative;
+    text-align: Left;
+    padding-left: 20px;
+  }
+
+  ul.list-group {
+    width: 400px;
+  }
+
+  .icon-left {
+    position: absolute;
+    left: 0px;
+  }
+
+  .icon-right {
+    position: absolute;
+    left: 415px;
+  }
+
+ .li-text {
+   padding-left: 50px;
+ }
+
+  .list-group-item, i.icon-left, i.icon-right {
+    font-size: 2rem;
   }
