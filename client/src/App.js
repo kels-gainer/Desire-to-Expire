@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-//import Modal from './components/Signup'
-
 import './css/App.css';
-//import FormContainer from './components/Container';
 
 import {Route, withRouter} from 'react-router-dom';
 import auth0Client from './Auth';
 import NavBar from './components/NavBar';
 import BodyContainer from './components/BodyContainer';
+import Modal from './components/Signup'
 import Callback from './Callback';
 import SecuredRoute from './components/SecuredRoute';
 import './css/listView.css';
+
+             // Trying to use portal for modal
+// import ReactDOM from "react-dom";
+// import Portal from './portal';
+// ReactDOM.render(<App />, document.getElementById("root"));
 
 class App extends Component {
   async componentDidMount() {
@@ -72,7 +75,6 @@ class App extends Component {
         
                 <BodyContainer email={this.state.email} auth={this.state.auth}/>
          {/* </div> */}
-        
 
         <SecuredRoute path='/new-question' />
       
