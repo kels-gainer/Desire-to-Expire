@@ -1,9 +1,11 @@
 .modal-wrapper {
     border: 1px solid #d0cccc;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-    margin: 100px auto 0;
+    /* margin: 100px auto 0; */
     transition: all .8s;
-    width: 100%;
+    z-index: 999;
+    margin: auto;
+    overflow: auto;
 }
 .modal-wrapper.hide {
     transform: translateY(-100vh);
@@ -14,6 +16,9 @@
 .modal-wrapper.show {
     transform: translateY(0vh);
     opacity: 1;
+    z-index: 1;
+    width: 550px;
+    height: 350px;
 }
 .modal-header {
     background: #263238;
@@ -31,14 +36,13 @@
 }
 
 .modal-body {
-    padding: 150px 150px;
+    padding: 30px 30px;
     text-align: center;
 }
 
 .modal-footer {
     background: #263238;
-    height: 35px;
-    padding: 15px;
+    height: 45px;
 }
 
 .close-modal-btn {
@@ -73,13 +77,13 @@
     float: right;
 }
 
-.back-drop {
+/* .back-drop {
     background-color: rgba(48, 49, 48, 0.42);
     height: 100%;
     position: fixed;
     transition: all 1.3s;
     width: 100%;
-}
+} */
 
 .open-modal-btn {
     margin: 15px;
