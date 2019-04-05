@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import Modal from './components/Signup'
-
 import './css/App.css';
-import FormContainer from './components/Container';
+// import FormContainer from './components/Container';
 
 import {Route, withRouter} from 'react-router-dom';
 import auth0Client from './Auth';
 import NavBar from './components/NavBar';
 import BodyContainer from './components/BodyContainer';
+import Modal from './components/Signup'
 import Callback from './Callback';
 import SecuredRoute from './components/SecuredRoute';
 import './css/listView.css';
+
+             // Trying to use portal for modal
+// import ReactDOM from "react-dom";
+// import Portal from './portal';
+// ReactDOM.render(<App />, document.getElementById("root"));
 
 class App extends Component {
   async componentDidMount() {
@@ -49,24 +53,24 @@ class App extends Component {
         <NavBar></NavBar>
         <Route exact path='/callback' component={Callback}/>
         
-        <BodyContainer myText="test" />
-      
+        <BodyContainer myText="test"/>
+
+          <Modal className="modal"
+            show={this.state.isShowing}
+            close={this.closeModalHandler}>
+            {/* <FormContainer/> */}
+           </Modal>
+
         <div className="row">
         <div className="column">
-                { this.state.isShowing ?
-                <div onClick={this.closeModalHandler} className="back-drop">
-                </div> : null }
-                  <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>
-                    Add Food
-                  </button>
-                </div>
-            <div className="column">
-                <Modal className="modal"
-                    show={this.state.isShowing}
-                    close={this.closeModalHandler}>
-                    {/* <FormContainer/> */}
-                </Modal>
-            </div>
+            { this.state.isShowing ?
+          <div onClick={this.closeModalHandler} className="back-drop">
+          </div> : null }
+          <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>
+            Add Food
+          </button>
+          </div>
+            
          </div>
 
         <SecuredRoute path='/new-question' />
