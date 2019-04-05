@@ -23,10 +23,6 @@ class FridgeItem extends Component {
     
       componentDidMount() {
         //console.log(this.state)
-        // this.setState({
-        //   auth: this.props.auth,
-        //   email: this.props.email
-        // })
         //this.setState({email: this.props.email})
         this.loadItems(this.state.email);
        
@@ -74,7 +70,9 @@ class FridgeItem extends Component {
     render() {
     return (
         <div className="list-view">
-        {console.log(this.props)}
+        {
+          console.log(this.props)
+        }
             <ul className="list-group list-group-flush">
                 {
                   this.state.userItems.map((item, i) =>
