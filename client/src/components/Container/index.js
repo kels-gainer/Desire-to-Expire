@@ -1,72 +1,73 @@
 import React, { Component } from "react";
+import API from '../../utils/API';
 
 /* Import Components */
-import Input from "../Input";
+//import Input from "../Input";
 // import TextArea from "../components/TextArea";
 import Button from "../Buttons";
-import Dropdown from "../Dropdown"
+//import Form from "../Form";
+//import Dropdown from "../Dropdown"
 
 class FormContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      newUser: {
+      newItem: {
+        user_email: "joe@blah.com",
         name: "",
-        age: "",
-        gender: "",
-        skills: [],
-        about: ""
+        category: "",
+        ex_date: 0
       },
 
     };
     // this.handleTextArea = this.handleTextArea.bind(this);
     // this.handleAge = this.handleAge.bind(this);
     // this.handleFullName = this.handleFullName.bind(this);
-    // this.handleFormSubmit = this.handleFormSubmit.bind(this);
+     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     // this.handleClearForm = this.handleClearForm.bind(this);
-    // this.handleInput = this.handleInput.bind(this);
+     this.handleInput = this.handleInput.bind(this);
   }
 
   /* This lifecycle hook gets executed when the component mounts */
 
-  handleFullName = (e) => {
-    let value = e.target.value;
-    this.setState(
-      prevState => ({
-        newUser: {
-          ...prevState.newUser,
-          name: value
-        }
-      }),
-      () => console.log(this.state.newUser)
-    );
-  }
+  // handleFullName = (e) => {
+  //   let value = e.target.value;
+  //   this.setState(
+  //     prevState => ({
+  //       newItem: {
+  //         ...prevState.newItem,
+  //         name: value
+  //       }
+  //     }),
+  //     () => console.log(this.state.newItem)
+  //   );
+  // }
 
-  handleAge =(e) => {
-    let value = e.target.value;
-    this.setState(
-      prevState => ({
-        newUser: {
-          ...prevState.newUser,
-          age: value
-        }
-      }),
-      () => console.log(this.state.newUser)
-    );
-  }
+  // handleAge =(e) => {
+  //   let value = e.target.value;
+  //   this.setState(
+  //     prevState => ({
+  //       newItem: {
+  //         ...prevState.newItem,
+  //         age: value
+  //       }
+  //     }),
+  //     () => console.log(this.state.newItem)
+  //   );
+  // }
 
   handleInput = (e) => {
     let value = e.target.value;
     let name = e.target.name;
     this.setState(
       prevState => ({
-        newUser: {
-          ...prevState.newUser,
+        newItem: {
+          ...prevState.newItem,
           [name]: value
         }
       }),
-      () => console.log(this.state.newUser)
+      () => console.log(this.state.newItem)
     );
   }
 
@@ -75,12 +76,12 @@ class FormContainer extends Component {
     let value = e.target.value;
     this.setState(
       prevState => ({
-        newUser: {
-          ...prevState.newUser,
+        newItem: {
+          ...prevState.newItem,
           about: value
         }
       }),
-      () => console.log(this.state.newUser)
+      () => console.log(this.state.newItem)
     );
   }
 
@@ -88,86 +89,47 @@ class FormContainer extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    let userData = this.state.newUser;
+    // this.setState = {
+    //   newItem: {
+    //     name: "",
+    //     category: "",
+    //     ex_date: 0
+    //   }
+    // }
+    let userData = this.state.newItem;
+    console.log(userData);
 
-    fetch("http://example.com", {
-      method: "POST",
-      body: JSON.stringify(userData),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    }).then(response => {
-      response.json().then(data => {
-        console.log("Successful" + data);
-      });
+    API.saveUserItem(userData).then( function(res) {
+        //res.json()
+        console.log("Successful" + res.body);
     });
   }
 
   handleClearForm= (e) => {
     e.preventDefault();
     this.setState({
-      newUser: {
+      newItem: {
+        user_email: "joe@blah.com",
         name: "",
-        age: "",
-        gender: "",
-        skills: [],
-        about: ""
-      }
+        category: "",
+        ex_date: 0
+      },
     });
   }
 
   render() {
     return (
-      <form className="container-fluid" onSubmit={this.handleFormSubmit}>
+      <div className="container-fluid" onSubmit={this.handleFormSubmit}>
         <form>
-  <div class="form-group">
-    <label for="food_name">Food Name</label>
-    <select class="food_name" id="food_name">
-                    <option>Milk</option>
-                    <option>Butter</option>
-                    <option>Cream</option>
-                    <option>Cheese</option>
-                    <option>Sour Cream</option>
-                    <option>Yogurt</option>
-                    <option> Apple</option>
-                    <option>Orange</option>
-                    <option>Grapes</option>
-                    <option>Banana</option>
-                    <option>Melons</option>
-                    <option>Bread</option>
-                    <option>Ground Meat</option>
-                    <option>Lunch Meat</option>
-                    <option>Steaks</option>
-                    <option>Roasts</option>
-                    <option>Hot Dogs</option>
-                    <option>Bacon</option>
-                    <option>Sausage</option>
-                    <option>Eggs</option>
-                    <option>Poltry</option>
-                    <option>Potatos</option>
-                    <option>Carrots</option>
-                    <option>Radish</option>
-                    <option>Fish</option>
-                    <option>Smoked fish</option>
-                    <option>Shellfish</option>
-                    <option>Herbs (fresh)</option>
-                    <option>Asparagus</option>
-                    <option>Corn</option>
-                    <option>Cabbage</option>
-                    <option>Celery</option>
-                    <option>Lettuce</option>
-                    <option>Peppers</option>
-                    <option>Squash</option>
-                    <option>Mushrooms</option>
-                    <option>Tomatoes</option>
-                    <option>Broccoli</option>
-                    <option>Spinach</option>
-    </select>
+  <div className="form-group">
+    <label htmlFor="food_name">Food Name</label>
+    <input className="food_name" id="food_name">
+                    
+    </input>
   </div>
-  <div class="form-group">
-    <label for="category">Category</label>
-    <select class="category" id="category">
+  <div className="form-group">
+    <label htmlFor="category">Category</label>
+    <select className="category" id="category">
             <option>Dairy</option>
             <option>Fruit</option>
             <option>Grains</option>
@@ -177,9 +139,9 @@ class FormContainer extends Component {
             <option>Veggies</option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="ex_date">Expiration</label>
-    <select class="ex_date" id="ex_date">
+  <div className="form-group">
+    <label htmlFor="ex_date">Expiration</label>
+    <select className="ex_date" id="ex_date">
                     <option>2</option>
                     <option>3</option>
                     <option>7</option>
@@ -206,7 +168,7 @@ class FormContainer extends Component {
           style={buttonStyle}
         />{" "}
         {/* Clear the form */}
-      </form>
+      </div>
     );
   }
 }
