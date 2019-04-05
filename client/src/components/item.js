@@ -22,11 +22,11 @@ class FridgeItem extends Component {
   }
     
       componentDidMount() {
-        console.log(this.props)
-        this.setState({
-          auth: this.props.auth,
-          email: this.props.email
-        })
+        //console.log(this.state)
+        // this.setState({
+        //   auth: this.props.auth,
+        //   email: this.props.email
+        // })
         //this.setState({email: this.props.email})
         this.loadItems(this.state.email);
        
@@ -41,10 +41,13 @@ class FridgeItem extends Component {
           })
           .catch(err => console.log(err));
       };
-    
-      deleteBook = id => {
-        API.deleteBook(id)
-          .then(res => this.loadBooks())
+
+      deleteItem = () => {
+        let id = this.id;
+        let email = this.state.email;
+        console.log("id: " +id +" email: " +email);
+        API.deleteUserItem(id)
+          .then(res => this.loadItems(email))
           .catch(err => console.log(err));
       };
     
@@ -71,10 +74,15 @@ class FridgeItem extends Component {
     render() {
     return (
         <div className="list-view">
+        {console.log(this.props)}
             <ul className="list-group list-group-flush">
                 {
                   this.state.userItems.map((item, i) =>
-                    <li className="list-group-item" key={i}><button className="icon-left"><i className="fas fa-edit"></i></button><span className="li-text">{item.name}</span><button className="icon-right"><i className="fas fa-trash-alt"></i></button></li>
+                    <li className="list-group-item" key={i}>
+                    <button className="icon-left"><i className="fas fa-edit"></i></button>
+                    <span className="li-text">{item.name}</span>
+                    <button className="icon-right" id={item.id} onClick={this.deleteItem}><i className="fas fa-trash-alt"></i></button>
+                    </li>
                   )
                 }
                 {/* <li className="list-group-item">Cras justo odio</li> */}

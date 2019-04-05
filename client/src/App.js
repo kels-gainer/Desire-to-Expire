@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from './components/Signup'
+//import Modal from './components/Signup'
 
 import './css/App.css';
 //import FormContainer from './components/Container';
@@ -48,17 +48,17 @@ class App extends Component {
         }
     }
 
-    openModalHandler = () => {
-        this.setState({
-            isShowing: true
-        });
-    }
+    // openModalHandler = () => {
+    //     this.setState({
+    //         isShowing: true
+    //     });
+    // }
 
-    closeModalHandler = () => {
-        this.setState({
-            isShowing: false
-        });
-    }
+    // closeModalHandler = () => {
+    //     this.setState({
+    //         isShowing: false
+    //     });
+    // }
   
   render() {
     return (
@@ -69,23 +69,9 @@ class App extends Component {
         </NavBar>
         <Route exact path='/callback' component={Callback}/>
         <br></br>
-        <div className="row">
-          <div className="sm-col-5">
-                { this.state.isShowing ?
-                <div onClick={this.closeModalHandler} className="back-drop">
-                </div> : null }
-                  <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>
-                    Add Food
-                  </button>
-                </div>
-  
-                <Modal className="modal"
-                    show={this.state.isShowing}
-                    close={this.closeModalHandler}>
-                    {/* <FormContainer/> */}
-                </Modal>
+        
                 <BodyContainer email={this.state.email} auth={this.state.auth}/>
-         </div>
+         {/* </div> */}
         
 
         <SecuredRoute path='/new-question' />

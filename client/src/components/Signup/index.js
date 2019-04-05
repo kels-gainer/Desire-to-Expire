@@ -3,6 +3,13 @@ import FormContainer from '../Container'
 import './style.css';
 
 const modal = (props) => {
+    
+        // this.state = {
+        //     body: {
+                
+        //     }     
+        // }
+
     return (
         <div>
             <div className={`modal-wrapper ${props.show ?  'show' : 'hide'}`}>
@@ -15,7 +22,7 @@ const modal = (props) => {
                 </div>
                 <div className="modal-footer">
                 {/* <FormContainer/> */}
-                    <button className="btn-continue">Save</button>
+                    <button className="btn-continue" >Save</button>
                 </div>
             </div>
         </div>

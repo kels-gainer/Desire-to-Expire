@@ -30,9 +30,28 @@ code {
   background-size: 502px 120px;
   height: 117px;
   width: 480px;
+  text-align: left;
+  font-size: 2rem;
+}
+
+.header-content {
+  margin-top: 2rem;
+  margin-left: 4rem;
+  line-height: 3.5;
+  font-weight: bold;
 }
 
 div.bodyContent {
   text-align: center;
   
+}
+
+.componentWrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.modal-app {
+  margin-top: 30px;
+  text-align: center;
 }
