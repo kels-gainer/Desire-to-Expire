@@ -10,7 +10,7 @@ label {
     background-color: white;
     width: 450px;
     position: absolute;
-    left: -375px;
+    left: -393px;
 }
 .modal-wrapper.hide {
     transform: translateY(-100vh);
