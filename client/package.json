@@ -7,7 +7,6 @@
     "npm": "6.4.1",
     "node": "8.12.0"
   },
-  
   "dependencies": {
     "auth0-js": "^9.10.1",
     "axios": "^0.18.0",
@@ -22,10 +21,11 @@
     "reactstrap": "^8.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
