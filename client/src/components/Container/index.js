@@ -13,6 +13,7 @@ class FormContainer extends Component {
     super(props);
 
     this.state = {
+      isShowing: this.props.isShowing,
       newItem: {
         user_email: "joe@blah.com",
         name: "",
@@ -22,40 +23,13 @@ class FormContainer extends Component {
 
     };
     // this.handleTextArea = this.handleTextArea.bind(this);
-    // this.handleAge = this.handleAge.bind(this);
-    // this.handleFullName = this.handleFullName.bind(this);
      this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    // this.handleClearForm = this.handleClearForm.bind(this);
+     this.handleClearForm = this.handleClearForm.bind(this);
      this.handleInput = this.handleInput.bind(this);
   }
 
   /* This lifecycle hook gets executed when the component mounts */
 
-  // handleFullName = (e) => {
-  //   let value = e.target.value;
-  //   this.setState(
-  //     prevState => ({
-  //       newItem: {
-  //         ...prevState.newItem,
-  //         name: value
-  //       }
-  //     }),
-  //     () => console.log(this.state.newItem)
-  //   );
-  // }
-
-  // handleAge =(e) => {
-  //   let value = e.target.value;
-  //   this.setState(
-  //     prevState => ({
-  //       newItem: {
-  //         ...prevState.newItem,
-  //         age: value
-  //       }
-  //     }),
-  //     () => console.log(this.state.newItem)
-  //   );
-  // }
 
   handleInput = (e) => {
     let value = e.target.value;
@@ -118,18 +92,19 @@ class FormContainer extends Component {
   }
 
   render() {
+    //const newItem = this.state.newItem;
     return (
       <div className="container-fluid" onSubmit={this.handleFormSubmit}>
         <form>
   <div className="form-group">
     <label htmlFor="food_name">Food Name</label>
-    <input className="food_name" id="food_name">
+    <input className="food_name" id="name" name="name" onChange={(e) => this.handleInput(e)}>
                     
     </input>
   </div>
   <div className="form-group">
     <label htmlFor="category">Category</label>
-    <select className="category" id="category">
+    <select className="category" id="category" name="category" onChange={(e) => this.handleInput(e)}>
             <option>Dairy</option>
             <option>Fruit</option>
             <option>Grains</option>
@@ -141,7 +116,7 @@ class FormContainer extends Component {
   </div>
   <div className="form-group">
     <label htmlFor="ex_date">Expiration</label>
-    <select className="ex_date" id="ex_date">
+    <select className="ex_date" id="ex_date" namne="ex_date" onChange={(e) => this.handleInput(e)}>
                     <option>2</option>
                     <option>3</option>
                     <option>7</option>
