@@ -86,6 +86,7 @@ class FridgeItem extends Component {
                     <li className="list-group-item" key={i}>
                     <button className="icon-left"><i className="fas fa-edit"></i></button>
                     <span className="li-text">{item.name}</span>
+                    <span className="li-ex-date">{item.ex_date}</span>
                     <button className="icon-right" id={item.id} onClick={((e) => this.deleteItem(e, item))}><i className="fas fa-trash-alt"></i></button>
                     </li>
                   )

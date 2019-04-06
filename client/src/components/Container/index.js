@@ -63,13 +63,7 @@ class FormContainer extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    // this.setState = {
-    //   newItem: {
-    //     name: "",
-    //     category: "",
-    //     ex_date: 0
-    //   }
-    // }
+   
     let userData = this.state.newItem;
     console.log(userData);
 
@@ -105,6 +99,7 @@ class FormContainer extends Component {
   <div className="form-group">
     <label htmlFor="category">Category</label>
     <select className="category" id="category" name="category" onChange={(e) => this.handleInput(e)}>
+            <option></option>
             <option>Dairy</option>
             <option>Fruit</option>
             <option>Grains</option>
@@ -116,7 +111,8 @@ class FormContainer extends Component {
   </div>
   <div className="form-group">
     <label htmlFor="ex_date">Expiration</label>
-    <select className="ex_date" id="ex_date" namne="ex_date" onChange={(e) => this.handleInput(e)}>
+    <select className="ex_date" id="ex_date" name="ex_date" onChange={(e) => this.handleInput(e)}>
+                    <option></option>
                     <option>2</option>
                     <option>3</option>
                     <option>7</option>
@@ -141,8 +137,8 @@ class FormContainer extends Component {
           type={"secondary"}
           title={"Clear"}
           style={buttonStyle}
+          onClick={ this.handleClearForm.bind(this) }
         />{" "}
-        {/* Clear the form */}
       </div>
     );
   }
