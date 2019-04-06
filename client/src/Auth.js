@@ -12,15 +12,23 @@ class Auth {
       scope: 'openid profile'
     });
 
+    
+
     this.getProfile = this.getProfile.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
+    this.handleProfile = this.handleProfile.bind(this);
   }
+  
 
   getProfile() {
     return this.profile;
+  }
+
+  handleProfile() {
+    return this.profile = this.setState({email: this.profile.email})
   }
 
   getIdToken() {

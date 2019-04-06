@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './css/App.css';
-// import FormContainer from './components/Container';
 
 import {Route, withRouter} from 'react-router-dom';
 import auth0Client from './Auth';
@@ -18,60 +17,64 @@ import './css/listView.css';
 
 class App extends Component {
   async componentDidMount() {
-  if (this.props.location.pathname === '/callback') return;
-  try {
-    await auth0Client.silentAuth();
-    this.forceUpdate();
-  } catch (err) {
-    if (err.error !== 'login_required') console.log(err.error);
+    if (this.props.location.pathname === '/callback') return;
+    try {
+      await auth0Client.silentAuth();
+      this.forceUpdate();
+      this.setState({
+        auth: auth0Client.isAuthenticated(),
+        email: auth0Client.getProfile().name
+      });
+      
+    } catch (err) {
+      if (err.error !== 'login_required') console.log(err.error);
+    }
   }
-}
+
+  componentDidUpdate(prev) {
+    if (this.state.auth !== auth0Client.isAuthenticated()) {
+      this.setState({
+        auth: auth0Client.isAuthenticated(),
+        email: auth0Client.getProfile().name
+      });
+    }
+  }
   
      constructor() {
         super();
 
         this.state = {
-            isShowing: false
+            isShowing: false,
+            auth: false,
+            email: ""
+            
         }
     }
 
-    openModalHandler = () => {
-        this.setState({
-            isShowing: true
-        });
-    }
+    // openModalHandler = () => {
+    //     this.setState({
+    //         isShowing: true
+    //     });
+    // }
 
-    closeModalHandler = () => {
-        this.setState({
-            isShowing: false
-        });
-    }
+    // closeModalHandler = () => {
+    //     this.setState({
+    //         isShowing: false
+    //     });
+    // }
   
   render() {
     return (
       <div className="App">
-        <NavBar></NavBar>
+        <NavBar 
+          auth={this.state.auth}
+        >
+        </NavBar>
         <Route exact path='/callback' component={Callback}/>
+        <br></br>
         
-        <BodyContainer myText="test"/>
-
-          <Modal className="modal"
-            show={this.state.isShowing}
-            close={this.closeModalHandler}>
-            {/* <FormContainer/> */}
-           </Modal>
-
-        <div className="row">
-        <div className="column">
-            { this.state.isShowing ?
-          <div onClick={this.closeModalHandler} className="back-drop">
-          </div> : null }
-          <button className="open-modal-btn" style={{zIndex: 100}} onClick={this.openModalHandler}>
-            Add Food
-          </button>
-          </div>
-            
-         </div>
+                <BodyContainer email={this.state.email} auth={this.state.auth}/>
+         {/* </div> */}
 
         <SecuredRoute path='/new-question' />
       
