@@ -24,8 +24,14 @@ class FridgeItem extends Component {
       componentDidMount() {
         //console.log(this.state)
         //this.setState({email: this.props.email})
-        this.loadItems(this.state.email);
-       
+        if (this.props) {
+          console.log(this.props)
+          // this.setState({
+          //   email: this.props.email,
+          //   auth: this.props.auth
+          // })
+          this.loadItems(this.state.email);
+        }
 
       }
 
@@ -68,11 +74,15 @@ class FridgeItem extends Component {
       };
     
     render() {
-    return (
-        <div className="list-view">
-        {
-          console.log(this.props)
+      let className = 'element';
+        if (this.props.isShowing) {
+            className += ' element-hide';
+        } else {
+            className = 'list-view'
         }
+    return (
+        <div className={className}>
+        
             <ul className="list-group list-group-flush">
                 {
                   this.state.userItems.map((item, i) =>

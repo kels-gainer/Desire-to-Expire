@@ -1,12 +1,16 @@
+label {
+    margin-right: .5rem;
+}
+
 .modal-wrapper {
     border: 1px solid #d0cccc;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
     /* margin: 100px auto 0; */
     transition: all .8s;
+    background-color: white;
     width: 450px;
-/*     z-index: 999;
-    margin: auto;
-    overflow: auto; */
+    position: absolute;
+    left: -375px;
 }
 .modal-wrapper.hide {
     transform: translateY(-100vh);
@@ -18,8 +22,6 @@
     transform: translateY(0vh);
     opacity: 1;
     z-index: 1;
-    width: 550px;
-    height: 350px;
 }
 .modal-header {
     background: #263238;
