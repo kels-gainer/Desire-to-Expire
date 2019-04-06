@@ -43,10 +43,10 @@ module.exports = function(app) {
     // POST NEW USER ITEMS
     //Sample POST BODY JSON object example
     // {
-    //     "user_email": "smith@blah.com",
-    //     "name": "Chicken",
+    //     "user_email": "joe@blah.com",
+    //     "food_name": "Steak",
     //     "category": "Meat",
-    //     "ex_date": 5
+    //     "ex_date": 3
     // }
     app.post("/api/userItems", function(req, res) {
         db.UserItems.create(req.body).then(function(dbItems) {

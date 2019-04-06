@@ -45,7 +45,7 @@ closeModalHandler = () => {
                 <Signup className="modal"
                     show={this.state.isShowing}
                     close={this.closeModalHandler}>
-                    {/* <FormContainer/> */}
+                    
                 </Signup>
         </div>
     )}

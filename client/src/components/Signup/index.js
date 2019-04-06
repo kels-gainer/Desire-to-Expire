@@ -12,7 +12,7 @@ const Modal = (props) => {
 
     return (
         <div>
-            <div className={`modal-wrapper ${props.show ?  'show' : 'hide'}`} style={{zIndex: '1'}}>
+            <div className={`modal-wrapper ${props.show ?  'show' : 'hide'}`}>
                 <div className="modal-header">
                     <h3>Add Food</h3>
                     <span className="close-modal-btn" onClick={props.close}>×</span>

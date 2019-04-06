@@ -17,6 +17,7 @@ class FridgeItem extends Component {
       auth: false,
       userItems: [],
       food_name: "",
+      category: "",
       ex_date: ""
     }
   }
@@ -44,12 +45,12 @@ class FridgeItem extends Component {
           .catch(err => console.log(err));
       };
 
-      deleteItem = () => {
-        let id = this.id;
-        let email = this.state.email;
-        console.log("id: " +id +" email: " +email);
+      deleteItem = (e, data) => {
+        // access to e.target here
+        console.log(data);
+        let id = data.id;
         API.deleteUserItem(id)
-          .then(res => this.loadItems(email))
+          .then(() => this.loadItems(this.state.email))
           .catch(err => console.log(err));
       };
     
@@ -62,26 +63,22 @@ class FridgeItem extends Component {
     
       handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.author) {
-          API.saveBook({
-            title: this.state.title,
-            author: this.state.author,
-            synopsis: this.state.synopsis
+        if (this.state.email && this.state.food_name && this.state.ex_date) {
+          API.saveUserItem({
+            user_email: this.state.email,
+            food_name: this.state.food_name,
+            category: this.state.category,
+            ex_date: this.state.ex_date
           })
-            .then(res => this.loadBooks())
+            .then(res => this.loadItems(this.state.email))
             .catch(err => console.log(err));
         }
       };
     
     render() {
-      let className = 'element';
-        if (this.props.isShowing) {
-            className += ' element-hide';
-        } else {
-            className = 'list-view'
-        }
+    
     return (
-        <div className={className}>
+        <div className="list-view">
         
             <ul className="list-group list-group-flush">
                 {
@@ -89,7 +86,7 @@ class FridgeItem extends Component {
                     <li className="list-group-item" key={i}>
                     <button className="icon-left"><i className="fas fa-edit"></i></button>
                     <span className="li-text">{item.name}</span>
-                    <button className="icon-right" id={item.id} onClick={this.deleteItem}><i className="fas fa-trash-alt"></i></button>
+                    <button className="icon-right" id={item.id} onClick={((e) => this.deleteItem(e, item))}><i className="fas fa-trash-alt"></i></button>
                     </li>
                   )
                 }
