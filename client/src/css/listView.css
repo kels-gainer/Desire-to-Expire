@@ -24,6 +24,11 @@
    padding-left: 50px;
  }
 
+ .li-ex-date {
+   position: absolute;
+   left: 350px;
+ }
+
   .list-group-item, i.icon-left, i.icon-right {
     font-size: 2rem;
   }

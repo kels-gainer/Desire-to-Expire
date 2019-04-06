@@ -25,13 +25,19 @@ closeModalHandler = () => {
 }
     
     render() {
+        let className = 'element';
+        if (this.props.isShowing) {
+            className += ' element-hide';
+        } else {
+            className = 'open-modal-btn add-icon'
+        }
     return (
         <div className="modal-app">
             <div className="componentWrapper">
                 { this.state.isShowing ?
                 <div onClick={this.closeModalHandler} className="back-drop">
                 </div> : null }
-                  <button className="open-modal-btn add-icon" onClick={this.openModalHandler}>
+                  <button className={className} onClick={this.openModalHandler}>
                   <i className="fas fa-plus-square"></i>
                   </button>
                 </div>
@@ -39,7 +45,7 @@ closeModalHandler = () => {
                 <Signup className="modal"
                     show={this.state.isShowing}
                     close={this.closeModalHandler}>
-                    {/* <FormContainer/> */}
+                    
                 </Signup>
         </div>
     )}

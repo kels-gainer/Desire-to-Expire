@@ -28,8 +28,9 @@ code {
   background-image: url('./images/fridge_header.png');
   background-repeat: no-repeat;
   background-size: 502px 120px;
+  border-radius: 12px;
   height: 117px;
-  width: 480px;
+  width: 500px;
   text-align: left;
   font-size: 2rem;
 }

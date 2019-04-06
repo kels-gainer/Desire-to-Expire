@@ -17,7 +17,7 @@ const BodyContainer = (props) => {
                 <div className="row row-header">
                             
                             <div className="col-10">
-                                <span className="header-content">Header</span>
+                                <span className="header-content">Nom Nom...</span>
                             </div>
 
                             <div className="col">

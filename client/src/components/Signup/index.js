@@ -20,10 +20,7 @@ const Modal = (props) => {
                 <div className="modal-body">
                 <FormContainer/>
                 </div>
-                <div className="modal-footer">
-                {/* <FormContainer/> */}
-                    <button className="btn-continue" >Save</button>
-                </div>
+                
             </div>
         </div>
     )
