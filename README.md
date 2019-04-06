@@ -11,17 +11,14 @@
  * Kelsey G. - [view on GitHub](https://github.com/kels-gainer)
  * Kennith S. - [view on GitHub](https://github.com/KennethS13)
  * Jesse MH. - [view on GitHub](https://github.com/Gamlilorien)
- * Tim L. - [view on GitHub](https://github.com/?)
+ * Tim L. - [view on GitHub](https://github.com/TimothyLee504)
 
 ### Divisions of Labor
- * Ariana R. - Front end
- * Kelsey G. - Back end
- * Kennith S. - Back end
- * Jesse MH. - Front end
- * Tim L. - Back end
-
- ## Who will be responsible for deliverables #1?
-
+ * Ariana R. - Usecase research, design, and form component
+ * Kelsey G. - Database Schemas, Seed data, and help with modal
+ * Kennith S. - API definitions, routes and proof-reader
+ * Jesse MH. - User authentication, merging content, MySQL tweaks
+ * Tim L. - Modal component and cascading value list
 
 - - -
 
@@ -35,14 +32,7 @@ The purpose of this mobile web app is to allow users to easily record and track 
 * This breaks down to approximately $500 of wasted food on an annual basis per household.
 * 15% of this waste comes from food unopened and still within its expiration date.
 * We throw away about 1.5 pounds of food daily.
-* Additionally, this discarded food translates into increased pollution through increased methane production.
-
-- - -
-
-
-### Proposed UX/UI Layouts and Design:
-
-
+* Additionally, this discarded food translates into increased pollution through increased methane production
 
 - - -
 
@@ -53,12 +43,11 @@ The purpose of this mobile web app is to allow users to easily record and track 
   * [express](https://expressjs.com/) - companion Web Framework for node.js
   * [MySQL](https://www.npmjs.com/package/mysql) - for the App storage and database
   * [Sequelize](http://docs.sequelizejs.com/) - for node to directly recieve and send data to our MySQL database via GET and POST requests.
-  * [Passport](http://www.passportjs.org/docs/downloads/html/) - for node based user authentication
+  * [Auth0](https://auth0.com/docs/quickstart/spa) - for node based user authentication
   * [React Bootstrap](https://react-bootstrap.github.io/components/alerts/) - a UI framework that uses the power of Bootstrap with REACT applications
-  * [React Notifications](http://minhtranite.github.io/react-notifications/) - a REACT based notifications package that creates notification based alerts
   * [Heroku](https://www.heroku.com/) - for app deployment and hosting
   * A folder struction that follows the MVC Pardigm
-  * Custom Javascript, HTML, and CSS - for everything else!
+  * Custom MySQL, Javascript, HTML, and CSS - for everything else!
 
 - - -
 
@@ -78,9 +67,23 @@ The purpose of this mobile web app is to allow users to easily record and track 
 
 - - -
 
-### Notes
+### Development Notes
 
+ * For local deployment or testing you will need to do the following using terminal from the project directory:
+    
+       npm install
+    
+       npm start
+    
+       sequelize db:seed:all
+    
+ The first is a one-time command for installing all of the require npm packages and dependencies. The npm start and sequelize db:seed:all commands are required EACH time the app is started from local deployment as the app clears the database records each time it starts, and the sequelize command re-populates it with seed data.
 
+Also, if you do not already have MySQL configured on your machine, this is required along with initalization of the Fridge_db database table before starting the app. In [MySQL Workbench](https://www.mysql.com/products/workbench/) run the following command to created the desired app MySQL database:
+
+    DROP DATABASE IF EXISTS Fridge_db;
+
+    CREATE DATABASE Fridge_db;
 
 - - -
 
